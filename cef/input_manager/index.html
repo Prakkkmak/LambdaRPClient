@@ -3,12 +3,10 @@ let fired = false;
 document.addEventListener('keydown', function(event) {
     if(!fired){
         mp.trigger('keyPressed', event.keyCode);// Appel du client side "key pressed"
-        fired = true;
     }
-    
+    fired = true;
 }, true); // Aucune idée de ce que fait le true
 document.addEventListener('keyup', function(event) {
-    fired = false; 
-}, true); // Aucune idée de ce que fait le true
-
+    fired = false;
+}, true);
 </script>

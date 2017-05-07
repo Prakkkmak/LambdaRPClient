@@ -42,6 +42,6 @@
 <script>
 let sendBug = () => {
     let text = document.getElementById('text').value;
-    mp.trigger('sendBug', text);
+    mp.trigger('command', 'bug', text, true);
 }
 </script>
