@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+	<title> Modele CEF </title>
+	<link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+</head>
+    
+<body>
+    
+    <main>
+    
+        <header>
+            <img src="images/LRP.jpg" width="100%" height="100%">
+            <h1> Rapport de bug</h1>
+        </header>
+            
+        <div class="divider"></div>
+        <br>
+        <div class="container">
+            <h3> Rédiger votre rapport de bug ici :</h3>
+            
+            <form> 
+                <textarea name="textarea" rows="10" cols="50" maxlength="2000" id="text"> </textarea>
+                <br><br>
+
+                <a href="#id" class="flipper-container" onclick="sendBug()">
+                    <div id="id" class="flipper">
+                        <div class="front-face" data-icon="&#x27a3;"><span data-hover="Clicked">Envoyer</span></div>
+                        <div class="back-face" data-icon="&#10003;">Merci</div>
+                    </div>
+                </a>
+                
+            </form>  
+            
+        </div>
+    </main>
+
+</body>
+
+<script>
+let sendBug = () => {
+    let text = document.getElementById('text').value;
+    mp.trigger('sendBug', text);
+}
+</script>
