@@ -1,3 +1,7 @@
+/**
+ * Cette page reçois les evenements lancés sur les browsers CEF.
+ */
+
 mp.events.add({
     "sendBug": (text) => {
         mp.gui.execute('window.location = "mp://ui/index.html"'); // page de base ( chat )
