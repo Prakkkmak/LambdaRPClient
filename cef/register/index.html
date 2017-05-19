@@ -27,26 +27,23 @@
                 <input type="password" placeholder="Mot de passe" id="password"><br>
                 <input type="password" placeholder="Confirmez mot de passe" id="confirm_password"><br>
                 <br>
-                <input type="submit" class="btn" value="Confirmer" onclick="takePassword()">
+                <input type="submit" class="btn" value="Confirmer" onclick="register()">
             </form>
             
         </div>
     </main>
 
 </body>
-    <script>
-
-        var password = document.getElementById("password"); 
-        var confirm_password = document.getElementById("confirm_password");
-        
-        function takePassword(){
-            
-            if(password.value != confirm_password.value) {
-                confirm_password.setCustomValidity("Mot de passe incorrect");
-            } else {
-                mp.trigger('sendPassword', password);
-            }
-        }
-
-    </script>
 </html>
+<script>
+    function register() {
+        let password = document.getElementById("password").value; 
+        let confirm_password = document.getElementById("confirm_password").value;
+        if(password === confirm_password) {
+            mp.trigger('command', 'register', password + " " + password, true);
+        } 
+        else {
+            confirm_password.setCustomValidity("Mot de passe incorrect");
+        }
+    }
+</script>

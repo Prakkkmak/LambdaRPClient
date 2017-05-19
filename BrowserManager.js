@@ -27,8 +27,10 @@ class BrowserManager {
         }
         return false;
     }
-    static closeAllBrowsers(type){
+    static closeAllBrowsers(type = "PAGE"){
+        mp.events.callRemote("console", "type "  + type);
         for(let browser of BrowserManager.browsers){
+            mp.events.callRemote("console", "type "  + browser.type);
             if(browser.type === type) browser.close();
         }
     }
