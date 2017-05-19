@@ -1,4 +1,4 @@
-{class BrowserManager {
+class BrowserManager {
     constructor(id,name,url,type = "PAGE"){
         this.id = id; // L'id du browser
         this.name = name; // Le nom du browser
@@ -19,8 +19,7 @@
             BrowserManager.closeAllBrowsers("PAGE");
             mp.gui.execute("mp.invoke('focus', true)");
         }
-        BrowserManager.browsers.push(browser);
-        
+        BrowserManager.browsers.push(browser);     
     }
     static get pageOpen(){
         for(let browser of BrowserManager.browsers){
@@ -33,7 +32,6 @@
             if(browser.type === type) browser.close();
         }
     }
-
 }
 BrowserManager.browsers = [];
-module.exports = BrowserManager;}
+exports.BrowserManager = BrowserManager;
