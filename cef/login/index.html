@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Login Page </title>
+	<link rel="stylesheet" href="./Asset/CSS/style.css">
+</head>
+    
+<body>
+    
+    <main>
+    
+        <header>
+            <img src="./Asset/image/LRP.jpg" width="100%" height="100%">
+            <h1> Bienvenue sur Lambda-RP </h1>
+        </header>
+            
+        <div class="divider"></div>
+        
+        <br>
+        <div class="container">
+            <h3> Login </h3>
+            <br>
+            <p>entrez votre mot de passe</p>
+            
+            <form>  
+                <input type="password" id="password"><br><br>
+                <input type="submit" class="btn" value="Confirmer" onclick="takePassword()">
+            </form>
+            
+            <div id=error>
+                <p> Mot de passe incorrect </p>
+            </div>
+            
+        </div>
+    </main>
+
+</body>
+    
+    <script>
+        
+        function takePassword() {
+            let password = document.getElementById("password").value;
+            mp.trigger('sendPassword', password);
+            }
+        
+        if (reg===2){
+            document.getElementById('error').style.display = 'block';
+        }
+        
+    </script>
+    
+</html>
