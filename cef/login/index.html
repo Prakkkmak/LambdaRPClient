@@ -25,7 +25,7 @@
             
             <form>  
                 <input type="password" id="password"><br><br>
-                <input type="submit" class="btn" value="Confirmer" onclick="takePassword()">
+                <input type="submit" class="btn" value="Confirmer" onclick="login()">
             </form>
             
             <div id=error>
@@ -35,19 +35,18 @@
         </div>
     </main>
 
-</body>
-    
-    <script>
-        
-        function takePassword() {
-            let password = document.getElementById("password").value;
-            mp.trigger('sendPassword', password);
-            }
-        
-        if (reg===2){
-            document.getElementById('error').style.display = 'block';
-        }
-        
-    </script>
-    
+</body>   
 </html>
+
+<script>
+    function login() {
+        let password = document.getElementById("password").value;
+        mp.trigger('command', 'login', password, true);
+    }
+    function getReg(reg){
+        // Modifie l'affichage en fonction du reg
+    }
+    /*if (reg===2){
+        document.getElementById('error').style.display = 'block';
+    }*/
+</script>
