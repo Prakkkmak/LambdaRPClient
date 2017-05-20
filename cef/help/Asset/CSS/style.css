@@ -33,24 +33,6 @@ header
     text-align: center;
 }
 
-.marge_gauche
-{
-    margin-left: 10%;
-    margin-right:10%;
-}
-
-.milieu
-{
-    margin-left: 15%;
-    margin-right: 15%;
-}
-
-.marge_droite
-{
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
 .select
 {
     text-align: left;
@@ -70,7 +52,7 @@ header
 
 .container
 {
-    background-color : lightgray;
+   /* background-color : lightgray; */
     margin-left:auto;
     margin-right: auto;
     width: 90%;
@@ -79,7 +61,7 @@ header
     border-radius:1%;
     text-align: center;
     padding: 10px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  /*  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); */
 }
 
 .btn {
