@@ -12,24 +12,26 @@ p
 
 .left
 {
-    width: 20%;
+    width: auto;
     height: 600px;
     float: left;
-    background-color: aqua;
+    background-image: linear-gradient(to bottom, white,white,lightgray,lightgray,yellow);
     margin-top : 100px;
     border:2px solid black;
     text-align: center;
+    padding:1%; 
 }
 
 .right
 {
-    width: 20%;
+    width: auto;
     height: 600px;
     float: right;
-    background-color: red;
+    background-image: linear-gradient(to bottom, white,white,lightgray,lightgray,yellow);
     margin-top: 100px;
     border:2px solid black;
     text-align: center;
+    padding:1%;
 }
 
 .origine
