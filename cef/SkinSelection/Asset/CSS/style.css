@@ -12,26 +12,49 @@ p
 
 .left
 {
-    width: auto;
+    width: 20%;
     height: 600px;
     float: left;
-    background-image: linear-gradient(to bottom, white,white,lightgray,lightgray,yellow);
+    background-color : #f1c40f;
     margin-top : 100px;
     border:2px solid black;
     text-align: center;
-    padding:1%; 
 }
 
 .right
 {
-    width: auto;
+    width: 20%;
     height: 600px;
     float: right;
-    background-image: linear-gradient(to bottom, white,white,lightgray,lightgray,yellow);
+    background-color : #f1c40f;
     margin-top: 100px;
     border:2px solid black;
     text-align: center;
-    padding:1%;
+}
+
+.middle
+{
+    float: left;
+    width: auto;
+    height: auto;
+    margin-left : 27%;
+    
+}
+
+.container
+{
+    background-color : whitesmoke;
+    height: auto;
+    width: auto;
+    display:inline;
+    vertical-align:middle;
+    padding-top : 1px;
+    margin-top : 10%;
+}
+
+h2
+{
+    background-color:whitesmoke;
 }
 
 .origine
