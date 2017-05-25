@@ -16,7 +16,7 @@ class BrowserManager {
     static openPage(id,name,url,type = "PAGE"){
         let browser = new BrowserManager(id,name,url,type);
         if(browser.type === "PAGE"){
-            BrowserManager.closeAllBrowsers("PAGE");
+            BrowserManager.closeAllBrowsers();
             mp.gui.execute("mp.invoke('focus', true)");
         }
         BrowserManager.browsers.push(browser);     
@@ -28,9 +28,7 @@ class BrowserManager {
         return false;
     }
     static closeAllBrowsers(type = "PAGE"){
-        mp.events.callRemote("console", "type "  + type);
         for(let browser of BrowserManager.browsers){
-            mp.events.callRemote("console", "type "  + browser.type);
             if(browser.type === type) browser.close();
         }
     }
