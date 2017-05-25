@@ -7,12 +7,17 @@ mp.events.add({
         BrowserManager.openPage(18,"bug","cef/bug_report/index.html");
     },
     "browser_open_register": () => {
-        BrowserManager.openPage(30,"bug","cef/register/index.html");
+        BrowserManager.openPage(30,"register","cef/register/index.html");
     },
     "browser_open_login": () => {
-        BrowserManager.openPage(31,"bug","cef/login/index.html");
+        BrowserManager.openPage(31,"login","cef/login/index.html");
+    },
+    "browser_open_RTC": () => {
+        BrowserManager.openPage(100, "webRTC", "cef/webRTC/index.html");
     },
     "brower_close_all": (type) => {
         BrowserManager.closeAllBrowsers(type);
-    }
+    },
+    
+
 })
