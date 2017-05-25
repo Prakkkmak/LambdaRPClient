@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <title> help </title>
+        <link rel="stylesheet" href="./Asset/CSS/style.css">
+        <link rel="stylesheet" href="./Asset/CSS/font-awesome.css">
+        <link rel="stylesheet" href="font-awesome.min.css">
+    </head>
+
+    <body>
+        <main>
+
+            <header>
+                <img src="./Asset/Image/LambdaRP4.jpg" width="100%" height="100%">
+                <h1> Menu d'aide </h1>
+                <h4> (Utilisez 'Echap' pour quitter) </h4>
+            </header>
+
+            <div class="divider"></div>
+
+            <br>
+            <div class="container">
+                
+                <div id="aide">
+                    <button class="btn" onclick="ShowAdmin()"> <i class="fa fa-unlock-alt" aria-hidden="true"></i><br/> Admin </button>
+                    <button class="btn"> <i class="fa fa-university" aria-hidden="true"></i><br/> Banque </button>
+                    <button class="btn"> <i class="fa fa-dribbble" aria-hidden="true"></i><br/> Basique </button>
+                    <button class="btn"> <i class="fa fa-comments-o" aria-hidden="true"></i><br/> Chat </button>
+                    <button class="btn"> <i class="fa fa-cog" aria-hidden="true"></i><br/> Compte </button>
+                    <button class="btn"> <i class="fa fa-flask" aria-hidden="true"></i><br/> Craft </button>
+                    <button class="btn"> <i class="fa fa-tree" aria-hidden="true"></i> <br/>Farming </button>
+                    <button class="btn"> <i class="fa fa-truck" aria-hidden="true"></i><br/> Imp./Exp. </button>
+                    <button class="btn"> <i class="fa fa-inbox" aria-hidden="true"></i><br/> Objets </button>
+                    <button class="btn"> <i class="fa fa-sitemap" aria-hidden="true"></i><br/> Organisation </button>
+                    <button class="btn"> <i class="fa fa-id-card-o" aria-hidden="true"></i><br/> Personnage </button>
+                </div>
+
+                <div id="admin">
+                    <p>
+                        <img src="Asset/Image/Admin%20g%C3%A9n%C3%A9ral.png"> <br/><br/>
+                        
+                <span class="syntaxe-commande">/perm</span> <span class="syntaxe-attribut">add</span> <span class="syntaxe-parametre">[player] [perm]</span> <span class="syntaxe-explication"><br/> Permet d'ajouter une permission à un joueur précis</span><br/><br/>
+                <span class="syntaxe-commande">/perm</span> <span class="syntaxe-attribut">suppr</span> <span class="syntaxe-parametre">[player] [perm]</span> <span class="syntaxe-explication"><br/> Permet de supprimer une permission à un joueur précis</span><br/><br/>
+                <span class="syntaxe-commande">/orga</span> <span class="syntaxe-attribut">perm</span> <span class="syntaxe-parametre">[idOrga] [perm]</span> <span class="syntaxe-explication"><br/> Permet d'ajouter une permission à une organisation précise</span><br/><br/>
+                <span class="syntaxe-commande">/orga</span> <span class="syntaxe-attribut">perm remove</span> <span class="syntaxe-parametre">[idOrga] [perm]</span> <span class="syntaxe-explication"><br/>Permet de supprimer une permission à une organisation précise</span><br/><br/>
+                <span class="syntaxe-commande">/orga</span> <span class="syntaxe-attribut">perm liste</span> <span class="syntaxe-parametre">[idOrga]</span> <span class="syntaxe-explication"><br/> Permet de check la liste des permissions d'une organisation précise
+                </span><br/><br/>
+                        
+<br/><br/>
+                        <img src="Asset/Image/Administrateur.png"> <br/><br/>
+
+                    <span class="syntaxe-commande">/inta</span> <span class="syntaxe-attribut">skin</span> <span class="syntaxe-parametre">[nombre]</span> <span class="syntaxe-explication"><br/> Permet de changer le skin d'un intérieur [1-1007]</span><br/><br/>
+                    <span class="syntaxe-commande">/zonea</span> <span class="syntaxe-attribut">creer</span> <span class="syntaxe-parametre">[nom] [range] [type]</span> <span class="syntaxe-explication"><br/> Permet de créer une zone avec un nom, une portée en spécifiant le type de la zone</span><br/><br/>
+                    <span class="syntaxe-commande">/zonea</span> <span class="syntaxe-attribut">check</span> <span class="syntaxe-explication"><br/> Permet de vérifier les paramètres d'une zone dans laquel on se trouve</span><br/><br/>
+                    <span class="syntaxe-commande">/zonea</span> <span class="syntaxe-attribut">liste</span> <span class="syntaxe-explication"><br/> Permet d'afficher la liste de toutes les zones créées sur le serveur</span><br/><br/>
+                    <span class="syntaxe-commande">/zonea</span> <span class="syntaxe-attribut">range</span> <span class="syntaxe-explication"><br/> Permet de modifier la portée la portée de la zone où on se trouve</span><br/><br/>
+                    <span class="syntaxe-commande">/zonea</span> <span class="syntaxe-attribut">nom</span> <span class="syntaxe-parametre">[nom] </span> <span class="syntaxe-explication"><br/> Permet de modifier le nom de la zone où on se trouve</span><br/><br/>
+                    <span class="syntaxe-commande">/zonea</span> <span class="syntaxe-attribut">suppr</span> <span class="syntaxe-explication"><br/> Permet de supprimer la zone où on se trouve</span><br/><br/>
+                    <span class="syntaxe-commande">/zonea</span> <span class="syntaxe-attribut">prix</span> <span class="syntaxe-parametre">[nombre]</span> <span class="syntaxe-explication"><br/> Permet de mettre en vente une zone où on se trouve (-1 = Pas en vente ; +0 = En vente )</span><br/><br/>
+                    <span class="syntaxe-commande">/obja</span> <span class="syntaxe-attribut">creer</span> <span class="syntaxe-parametre">[obj] [nombre]</span> <span class="syntaxe-explication"><br/>Permet de se give un objet</span><br/><br/>
+                    <span class="syntaxe-commande">/obja</span> <span class="syntaxe-attribut">clearinv</span> <span class="syntaxe-parametre">[player]</span> <span class="syntaxe-explication"><br/>Permet de supprimer entièrement l'inventaire d'un joueur</span><br/><br/>
+                    <span class="syntaxe-commande">/tradea</span> <span class="syntaxe-attribut">add</span> <span class="syntaxe-parametre">[objid] [prixachat] [prixvente]</span> <span class="syntaxe-explication"><br/>Permet d'ajouter un objet dans une zone import/export où l'on se trouve</span><br/><br/>
+                    <span class="syntaxe-commande">/va</span> <span class="syntaxe-attribut">creer</span> <span class="syntaxe-parametre">[vihivle]</span> <span class="syntaxe-explication"><br/>Permet de créer un véhicule ( Les clés du véhicule doivent ensuite être give au joueur manuellement )</span><br/><br/>
+                    <span class="syntaxe-commande">/va</span> <span class="syntaxe-attribut">couleur</span> <span class="syntaxe-parametre">[coul1] [coul2]</span> <span class="syntaxe-explication"><br/>Permet de changer la couleur du véhicule dans lequel on se trouve</span><br/><br/>
+                    <span class="syntaxe-commande">/va</span> <span class="syntaxe-attribut">supprimer</span> <span class="syntaxe-explication"><br/>Permet de supprimer un véhicule dans lequel on se trouve</span><br/><br/>
+                    <span class="syntaxe-commande">/orga</span> <span class="syntaxe-attribut">creer</span> <span class="syntaxe-parametre">[leader] [nom]</span> <span class="syntaxe-explication"><br/>Permet de créer une organisation en spécifiant qui est le leader</span><br/><br/>
+                    <span class="syntaxe-commande">/ban</span> <span class="syntaxe-parametre">[player]</span> <span class="syntaxe-explication"><br/>Permet de ban un joueur (Spécifier le nom entier du Joueur ) même si celui-ci est déco</span><br/><br/>
+                    <span class="syntaxe-commande">/unban</span> <span class="syntaxe-parametre">[player]</span> <span class="syntaxe-explication"><br/>Permet de déban un joueur (Spécifier le nom entier du Joueur) même si celui-ci est déco</span><br/><br/>
+                    <span class="syntaxe-commande">/moneya</span> <span class="syntaxe-attribut">set</span> <span class="syntaxe-parametre">[player] [amout]</span> <span class="syntaxe-explication"><br/>Permet de fixer l'argent du joueur à une somme exacte</span><br/><br/>
+                    <span class="syntaxe-commande">/moneya</span> <span class="syntaxe-attribut">add</span> <span class="syntaxe-parametre">[player] [amout]</span> <span class="syntaxe-explication"><br/>Permet d'ajouter de l'argent à un joueur</span><br/><br/>
+                    <span class="syntaxe-commande">/moneya</span> <span class="syntaxe-attribut">rem</span> <span class="syntaxe-parametre">[player] [amout]</span> <span class="syntaxe-explication"><br/>Permet de retirer de l'argent à un joueur</span><br/><br/><br/>
+                        
+
+                        <img src="Asset/Image/Mod%C3%A9rateur.png"> <br/><br/>
+
+                    <span class="syntaxe-commande">/orga</span> <span class="syntaxe-attribut">liste</span> <span class="syntaxe-explication"><br/>Permet de voir la liste des organisations créées</span><br/><br/>
+                    <span class="syntaxe-commande">/tp</span>  <span class="syntaxe-parametre">[x] [y] [z]</span> <span class="syntaxe-explication"><br/>Permet de se téléporter à une position exacte (/pos pour connaitre sa position)</span><br/><br/>
+                    <span class="syntaxe-commande">/goto</span> <span class="syntaxe-parametre">[player]</span> <span class="syntaxe-explication"><br/>Permet se téléporter à un joueur</span><br/><br/>
+                    <span class="syntaxe-commande">/gethere</span> <span class="syntaxe-parametre">[player]</span> <span class="syntaxe-explication"><br/>Permet de téléporter à joueur à soi</span><br/><br/>
+                    <span class="syntaxe-commande">/kick</span> <span class="syntaxe-parametre">[player] </span> <span class="syntaxe-explication"><br/>Permet de kick un joueur du serveur en spécifiant la raison</span><br/><br/>
+                    <span class="syntaxe-commande">/ban</span> <span class="syntaxe-parametre">[player] [time] </span> <span class="syntaxe-explication"><br/>Permet de ban un joueur temporairement </span><br/><br/>
+                    <span class="syntaxe-commande">/freeze</span> <span class="syntaxe-parametre">[player]</span> <span class="syntaxe-explication"><br/>Permet de freeze un joueur </span><br/><br/>
+                    <span class="syntaxe-commande">/unfreeze</span> <span class="syntaxe-parametre">[player]</span> <span class="syntaxe-explication"><br/>Permet de unfreeze un joueur</span><br/><br/>
+                    <span class="syntaxe-commande">/kill</span> <span class="syntaxe-parametre">[player]</span> <span class="syntaxe-explication"><br/>Permet de tuer un joueur, qu'importe sont endroit sur la map</span><br/><br/>
+                        
+                        <br/>
+                        
+                        <button class="btn" onclick="ExitAdmin()">Retour</button>
+                    </p>
+                </div>
+
+                <div id="banque">
+
+                </div>
+
+                <div id="basique">
+
+                </div>
+
+                <div id="chat">
+
+                </div>
+
+                <div id="compte">
+
+                </div>
+
+                <div id="craft">
+
+                </div>
+                
+                <div id="farming">
+                
+                </div>
+                
+                <div id="importexport">
+                
+                </div>
+                
+                <div id="objet">
+                
+                </div>
+
+                <div id="org">
+                
+                </div>
+
+                <div id="perso">
+                
+                </div>
+
+
+
+
+
+
+            </div>
+        </main>
+
+    </body>
+    
+    <script>
+    
+        function ShowAdmin(){
+            document.getElementById('aide').style.display = 'none';
+            document.getElementById('admin').style.display = 'block';  
+        }
+        
+        function ExitAdmin(){
+            document.getElementById('admin').style.display = 'none';
+            document.getElementById('aide').style.display = 'block'; 
+            
+        }
+    
+    </script>
+</html>
