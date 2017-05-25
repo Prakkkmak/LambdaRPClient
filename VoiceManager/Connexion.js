@@ -10,11 +10,20 @@ class Connexion {
         this.volume = volume;
         // Function RTC pour changer le volume
     }
-    join(player){
-        
+    getPlayerIndex(player){
+        return this.players.indexOf(player);
     }
-
-    
+    join(player){
+        if(this.getPlayerIndex(player) === -1){
+             this.players.push(player);
+        }
+    }
+    leave(player){
+        let index = getPlayerIndex(player);
+        if(index >= 0){
+            this.players.splice(index, 1);
+        }
+    }
     static generateRoomId(type = 0){
         let id = 0;
     
@@ -33,11 +42,15 @@ class Connexion {
         }
         return null;
     }
-    static join(id){
-        let connexion = getConnexion(id)
+    static join(player, id){
+        let connexion = Connexion.getConnexion(id)
         if(connexion){
-            
+            connexion.join(player);
         }
+        else{
+            connexion = new Connexion([player]);
+        }
+        return connexion;
     }
 }
 Connexion.connexions = [];

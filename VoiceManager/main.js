@@ -28,5 +28,9 @@ function test(){
         let c = new Connexion(ps)
         console.log(c);
     }
+    let c2 = Connexion.join(players[4], 4);
+    Connexion.join(players[4], 4);
+    Connexion.join(players[1], 4);
+    console.log(c2);
 }
 test();
