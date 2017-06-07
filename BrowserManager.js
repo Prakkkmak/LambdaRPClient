@@ -19,6 +19,7 @@ class BrowserManager {
             BrowserManager.closeAllBrowsers();
             mp.gui.execute("mp.invoke('focus', true)");
         }
+        mp.gui.chat.activate(false);
         BrowserManager.browsers.push(browser);     
     }
     static get pageOpen(){
@@ -31,6 +32,7 @@ class BrowserManager {
         for(let browser of BrowserManager.browsers){
             if(browser.type === type) browser.close();
         }
+        mp.gui.chat.activate(true);
     }
 }
 BrowserManager.browsers = [];
