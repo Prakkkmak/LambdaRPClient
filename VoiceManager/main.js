@@ -9,6 +9,10 @@ function updateEvent(){ // On enregistre l'evenement d'update
         updateEvent();
     }, updateTime); // On update tout les updateTime
 }
+function Distance(vec1, vec2){
+    return Math.sqrt(Math.pow((vec1.x - vec2.x),2) + Math.pow((vec1.y - vec2.y),2) + Math.pow((vec1.z - vec2.z),2));
+}
+
 
 function test(){
     players = [

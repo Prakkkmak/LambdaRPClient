@@ -16,23 +16,46 @@ mp.events.add({
             case 112:
                 mp.events.call('browser_open_bug');
                 break;
-            case 100:
-                //mp.events.call('command', 'prevPant');
+            case 103:
+                mp.events.call('command', 'changeSkin', '0 -');
+                //mp.events.call('command', 'validateTop', '1');
                 break;
-            case 101:
-                //mp.events.call('command', 'nextPant')
+            case 105:
+                mp.events.call('command', 'changeSkin', '0 +');
+                //mp.events.call('command', 'validateTop', '0');
+            
+                break;
+            case 100:
+                mp.events.call('command', 'changeSkin', '1 -');
+                break;
+            case 102:
+                mp.events.call('command', 'changeSkin', '1 +');
                 break;
             case 97:
-                //mp.events.call('command', 'prevPantColor');
+                mp.events.call('command', 'changeSkin', '2 -');
                 break;
-            case 98:
-                //mp.events.call('command', 'nextPantColor')
+            case 99:
+                mp.events.call('command', 'changeSkin', '2 +');
                 break;
-            case 104:
-                //mp.events.call('command', 'savePant')
+            case 109:
+                mp.events.call('command', 'vselection', '0');
+                break;
+            case 107:
+                mp.events.call('command', 'vselection', '1');
+                break;
+            case 90:
+                /*for(let i = 0; i < 10; i++){
+                     mp.events.call('command', 'va', 'creer bmx');
+                }*/
                 break;
 
         }   
       
     }
+})
+mp.keys.bind(226, true, () => {
+    mp.nametags.enabled = true;
+})
+mp.keys.bind(226, false, () => {
+    mp.nametags.enabled = false;
 })
