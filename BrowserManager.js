@@ -13,6 +13,17 @@ class BrowserManager {
             mp.gui.execute("mp.invoke('focus', false)");
         }
     }
+    execute(code){
+        this.transform.execute(code);
+    }
+    static openMenu(id, name, url, type = "MENU"){
+        let menu = new BrowserManager(id,name,url,type);
+        if(menu.type === "MENU"){
+            BrowserManager.closeAllBrowsers("MENU");
+        }
+        BrowserManager.browsers.push(menu)
+        return menu;
+    }
     static openPage(id,name,url,type = "PAGE"){
         let browser = new BrowserManager(id,name,url,type);
         if(browser.type === "PAGE"){
@@ -20,7 +31,8 @@ class BrowserManager {
             mp.gui.execute("mp.invoke('focus', true)");
         }
         mp.gui.chat.activate(false);
-        BrowserManager.browsers.push(browser);     
+        BrowserManager.browsers.push(browser);  
+        return browser;
     }
     static get pageOpen(){
         for(let browser of BrowserManager.browsers){

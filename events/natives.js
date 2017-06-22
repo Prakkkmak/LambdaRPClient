@@ -6,13 +6,19 @@ mp.events.add({
         mp.game.streaming.removeIpl(ipl);
     },
     "handcuff": (toggle) => {
-        mp.events.callRemote("console", toggle);
         mp.players.local.setEnableHandcuffs(toggle);
-        mp.events.callRemote("console", "cuffed = " + mp.players.local.isCuffed());
     },
     "isComponentVariationValid": (id, drawable, texture) => {
-        mp.events.callRemote("console", id + " " + drawable + " " + texture);
         let valid = mp.players.local.isComponentVariationValid(id, drawable, texture);
-        mp.events.callRemote("console", valid);
+    },
+    "setUndriveable": (vehicleId, bool) => {
+        mp.vehicles.at(vehicleId).setUndriveable(bool);
+    },
+    "setDoorOpen": (vehicleId, index, loose,instantly) => {
+         mp.vehicles.at(vehicleId).setDoorOpen(index, loose, instantly);
+    },
+    "setDoorShut": (vehicleId, index, instantly) => {
+         mp.vehicles.at(vehicleId).setDoorShut(index, instantly);
     }
+
 })

@@ -7,8 +7,20 @@ mp.events.add({
             case 17:
                 mp.events.callRemote("defaultAction")
                 break;
+            case 222:
+                mp.events.callRemote("menuAction")
+                break;
+            case 45:
+                mp.events.callRemote("inventory_open")
+                break;
             case 27:
                 mp.events.call('brower_close_all', "PAGE");
+                break;
+            case 37:
+                mp.events.call('command', 'validateTop', '0');
+                break;
+            case 39:
+                mp.events.call('command', 'validateTop', '1');
                 break;
             case 119:
                 mp.events.call('browser_open_bug');
@@ -18,12 +30,9 @@ mp.events.add({
                 break;
             case 103:
                 mp.events.call('command', 'changeSkin', '0 -');
-                //mp.events.call('command', 'validateTop', '1');
                 break;
             case 105:
                 mp.events.call('command', 'changeSkin', '0 +');
-                //mp.events.call('command', 'validateTop', '0');
-            
                 break;
             case 100:
                 mp.events.call('command', 'changeSkin', '1 -');

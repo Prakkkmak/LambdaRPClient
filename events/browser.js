@@ -18,6 +18,4 @@ mp.events.add({
     "brower_close_all": (type) => {
         BrowserManager.closeAllBrowsers(type);
     },
-    
-
 })

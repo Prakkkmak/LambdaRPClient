@@ -1,28 +1,28 @@
 let character={};
 
 	function setSex(sex) {
-		character.sex=sex
-        document.getElementById('sexe').style.display = 'none';
-        document.getElementById('ethnie').style.display = 'inline-block';
+        document.getElementById('sex').style.display = 'none';
+        document.getElementById('ethnic').style.display = 'inline-block';
+        mp.trigger('command', 'sexe', sex, false);
 	}
 
-	function setEthnie(ethnie) {
-		character.ethnie=ethnie
-        document.getElementById('ethnie').style.display = 'none';
+	function setEthnic(ethnic) {
+        document.getElementById('ethnic').style.display = 'none';
         document.getElementById('date').style.display = 'inline-block';
+        mp.trigger('command', 'ethnie', ethnic, false);
 	}
     
     function setDate(){
-        character.date= document.getElementById("Data").value;
-        alert(character.date);
+        let birthDate= document.getElementById("birthDate").value;
         document.getElementById('date').style.display = 'none';
-        document.getElementById('div_taille_poids').style.display = 'inline-block';
+        document.getElementById('HeighWeight').style.display = 'inline-block';
+        mp.trigger('command', 'naissance', birthDate, false);
     }
 
-    function setTaillePoids(){
-        character.taille= document.getElementById("taille").value;
-        character.poids= document.getElementById("poids").value;
-        alert(character.taille);
-        alert(character.poids);
-        document.getElementById('div_taille_poids').style.display = 'none';
+    function setHeighWeight(){
+        let heigh= document.getElementById("Heigh").value;
+        let weight= document.getElementById("Weight").value;
+        document.getElementById('HeighWeight').style.display = 'none';
+        mp.trigger('command', 'taille', heigh, false);
+        mp.trigger('command', 'poids', weight, true);
     }

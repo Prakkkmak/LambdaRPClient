@@ -4,5 +4,6 @@ require("./events/command.js"); // Le cef reçois les evenemnts lancés dans le 
 require("./events/natives.js"); // Le cef reçois les evenemnts lancés dans le cef
 require("./events/server.js"); // Le cef reçois les evenemnts lancés dans le cef
 require("./events/camera.js"); // Le cef reçois les evenemnts lancés dans le cef
+require("./events/menu.js"); // Le cef reçois les evenemnts lancés dans le cef
 require("./init.js");
 mp.events.call("browser_open_inputManager");
