@@ -13,6 +13,9 @@ mp.events.add({
             case 45:
                 mp.events.callRemote("inventory_open")
                 break;
+            case 112:
+                mp.events.callRemote("helps")
+                break;
             case 27:
                 mp.events.call('brower_close_all', "PAGE");
                 break;

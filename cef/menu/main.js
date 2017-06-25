@@ -1,5 +1,6 @@
 let buttons = [];
 let buttonSelectioned = 0;
+let MAX = 25;
 let getMenuButtons = document.getElementById("menu_buttons");
 function createButton(name = "Défaut", cmd = null){
     let newButton = document.createElement("BUTTON");
@@ -8,8 +9,11 @@ function createButton(name = "Défaut", cmd = null){
     getMenuButtons.appendChild(newButton);
     newButton.setAttribute('onclick', "command('" + cmd + "')")
     newButton.cmd = cmd;
+    newButton.active = true;
     buttons.push(newButton);
     changeSelection(0);
+    if(buttons.length < MAX) max = button.length - 1;
+    else max = MAX;
 }
 document.onkeydown = (e) => {
     if(e.keyCode === 38){
@@ -22,17 +26,43 @@ document.onkeydown = (e) => {
         select();
     }
 }
+function display(){
+    if(buttons.length > MAX){
+        let min = Math.floor(buttonSelectioned - MAX/2)
+        let max = Math.floor(buttonSelectioned + MAX/2)
+        if(min < 0) max += -min
+        if(max > buttons.length - 1 ) min -= button.length - 1 - max;
+        for(let i = 0; i < buttons.length ; i++){
+            if(i < min || i > max){
+                if(buttons[i].active){
+                    buttons[i].active = false;
+                    buttons[i].style.display = "none";
+                }
+            }
+            else{
+                if(!buttons[i].active){
+                    buttons[i].active = true;
+                    buttons[i].style.display = "block";
+                }
+            }
+        }
+    }
+}
 function changeSelection(i){
     if(buttons.length > 0){
         buttons[buttonSelectioned].style.color = "blue";
-        buttonSelectioned += i;
-        while(buttonSelectioned >= buttons.length){
-            buttonSelectioned -= buttons.length;
+        do {
+            buttonSelectioned += i
+            while(buttonSelectioned >= buttons.length){
+                buttonSelectioned -= buttons.length;
+            }
+            while(buttonSelectioned < 0){
+                buttonSelectioned += buttons.length;
+            }
         }
-        while(buttonSelectioned < 0){
-            buttonSelectioned += buttons.length;
-        }
+        while(!buttons[buttonSelectioned].active)
         buttons[buttonSelectioned].style.color = "yellow";
+        display();
     }  
 }
 function select(){

@@ -19,6 +19,9 @@ mp.events.add({
     },
     "setDoorShut": (vehicleId, index, instantly) => {
          mp.vehicles.at(vehicleId).setDoorShut(index, instantly);
+    },
+    "freeze": (toggle) => {
+        mp.players.local.freezePosition(toggle);
     }
 
 })

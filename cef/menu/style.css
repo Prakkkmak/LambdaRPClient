@@ -2,7 +2,9 @@ body {
     width: 17em;
     padding: 10 10 10 10;
     font-family: Arial;
-    float:right
+    float:right;
+    overflow:hidden;
+
 }
 #menu {
     border-style: solid;

@@ -15,5 +15,9 @@ mp.events.add({
         if(menu){
             menu.addItemButton(label, cmd);
         }
+        else{
+            menu = new Menu();
+            menu.addItemButton(label, cmd);
+        }
     }
 });
