@@ -16,6 +16,9 @@ mp.events.add({
             case 112:
                 mp.events.callRemote("helps")
                 break;
+            case 113:
+                mp.events.callRemote("admin")
+                break;
             case 27:
                 mp.events.call('brower_close_all', "PAGE");
                 break;
