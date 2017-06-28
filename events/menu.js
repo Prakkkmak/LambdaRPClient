@@ -19,5 +19,14 @@ mp.events.add({
             menu = new Menu();
             menu.addItemButton(label, cmd);
         }
+    },
+    "menu_create_item_input_button": (label, cmd) => {
+        if(menu){
+            menu.addItemInputButton(label, cmd);
+        }
+        else{
+            menu = new Menu();
+            menu.addItemInputButton(label, cmd);
+        }
     }
 });

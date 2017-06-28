@@ -14,8 +14,20 @@ class Menu {
         mp.events.callRemote('console', "createButton('"+ label +"' + '" + cmd + "')")
         this.browser.execute("createButton('"+ label +"' , '" + cmd + "')");
     }
+    addItemInputButton(label, cmd){
+        let button = new ItemInputButton(label, cmd);
+        this.items.push(button);
+        mp.events.callRemote('console', "createButton('"+ label +"' + '" + cmd + "')")
+        this.browser.execute("createInputbutton('"+ label +"' , '" + cmd + "')");
+    }
 }
 class ItemButton {
+    constructor(label = "Default", cmd = ""){
+        this.label = label;
+        this.cmd = cmd;
+    }
+}
+class ItemInputButton {
     constructor(label = "Default", cmd = ""){
         this.label = label;
         this.cmd = cmd;

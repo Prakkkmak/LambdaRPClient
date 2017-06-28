@@ -12,8 +12,31 @@ function createButton(name = "Défaut", cmd = null){
     newButton.active = true;
     buttons.push(newButton);
     changeSelection(0);
-    if(buttons.length < MAX) max = button.length - 1;
-    else max = MAX;
+    return newButton;
+}
+function createInputbutton(name = "0", cmd = "null"){
+    let button = createButton(name,cmd);
+    button.inputButton = true;
+    button.cmdParam = "";
+}
+function changeButtonValue(val){
+    val = Number(val);
+    let button = buttons[buttonSelectioned];
+    if(button.inputButton){
+        if(val >= 0){
+            if(button.innerHTML === "0"){
+                button.innerHTML = val
+            }
+            else{
+                button.innerHTML = button.innerHTML + val;
+            }
+        }
+        else{
+            button.innerHTML = button.innerHTML.slice(0,-1);
+        }
+        button.cmdParam = button.innerHTML;
+    }
+    
 }
 document.onkeydown = (e) => {
     if(e.keyCode === 38){
@@ -21,6 +44,18 @@ document.onkeydown = (e) => {
     }
     else if(e.keyCode === 40){
         changeSelection(+1);
+    }
+    else if(e.keyCode === 37){
+        changeSelection(-10);
+    }
+    else if(e.keyCode === 39){
+        changeSelection(+10);
+    }
+    else if(e.keyCode <= 105 && e.keyCode >= 96){
+        changeButtonValue(e.keyCode - 96);
+    }
+    else if(e.keyCode === 8){
+         changeButtonValue(-1);
     }
     else if(e.keyCode === 13){
         select();
@@ -66,6 +101,9 @@ function changeSelection(i){
     }  
 }
 function select(){
+    if(buttons[buttonSelectioned].cmdParam){
+        buttons[buttonSelectioned].cmd += " " + buttons[buttonSelectioned].cmdParam;
+    }
     command(buttons[buttonSelectioned].cmd);
     buttonSelectioned = 0;
     changeSelection(0);
@@ -91,7 +129,7 @@ function command(cmd) {
     mp.trigger('command', cmd[0], text);
 }
 function closeAllButtons(){
-    while(buttons.length > 0){
-        deleteButton();
+    for(let i = buttons.length - 1; i >= 0; i--){
+        deleteButton(i)
     }
 }
