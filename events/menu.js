@@ -20,6 +20,13 @@ mp.events.add({
             menu.addItemButton(label, cmd);
         }
     },
+    "menu_vehicles_list": (vehList) => {
+        if(!menu) menu = new Menu();
+        vehList = vehList.split(",")
+        for(let vehicle of vehList){
+            menu.addItemButton(vehicle, "va creer " + vehicle);
+        }
+    },
     "menu_create_item_input_button": (label, cmd) => {
         if(menu){
             menu.addItemInputButton(label, cmd);
