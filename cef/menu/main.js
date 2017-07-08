@@ -62,11 +62,12 @@ document.onkeydown = (e) => {
     }
 }
 function display(){
+
     if(buttons.length > MAX){
-        let min = Math.floor(buttonSelectioned - MAX/2)
-        let max = Math.floor(buttonSelectioned + MAX/2)
+        let min = Math.floor(buttonSelectioned - MAX/2);
+        let max = Math.floor(buttonSelectioned + MAX/2);
         if(min < 0) max += -min
-        if(max > buttons.length - 1 ) min -= button.length - 1 - max;
+        if(max >= buttons.length ) min -= max - buttons.length + 1;
         for(let i = 0; i < buttons.length ; i++){
             if(i < min || i > max){
                 if(buttons[i].active){
@@ -86,16 +87,15 @@ function display(){
 function changeSelection(i){
     if(buttons.length > 0){
         buttons[buttonSelectioned].style.color = "blue";
-        do {
-            buttonSelectioned += i
-            while(buttonSelectioned >= buttons.length){
-                buttonSelectioned -= buttons.length;
-            }
-            while(buttonSelectioned < 0){
-                buttonSelectioned += buttons.length;
-            }
+        buttonSelectioned += i
+        while(buttonSelectioned >= buttons.length){
+            buttonSelectioned = 0;
         }
-        while(!buttons[buttonSelectioned].active)
+        while(buttonSelectioned < 0){
+            buttonSelectioned = buttons.length - 1;
+        
+        
+        }
         buttons[buttonSelectioned].style.color = "yellow";
         display();
     }  
