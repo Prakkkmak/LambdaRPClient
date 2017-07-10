@@ -60,6 +60,9 @@ document.onkeydown = (e) => {
     else if(e.keyCode === 13){
         select();
     }
+    else if(e.keyCode === 8){ // Backspace
+        closeAllButtons()
+    }
 }
 function display(){
 
