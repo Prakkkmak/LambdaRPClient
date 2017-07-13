@@ -2,7 +2,6 @@ let BrowserManager = require("BrowserManager.js").BrowserManager;
 mp.events.add({
     "keyPressed": (key) => {
         key = Number(key);
-    
         switch(key) {
             case 17:
                 mp.events.callRemote("defaultAction")
