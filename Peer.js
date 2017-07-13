@@ -31,11 +31,11 @@ class Peer { // Un peer est une connexion avec un seul client distant.
         vocalBrowser.execute("startPeer(" + this.initiator + "," + this.id + ")")
     }
     sendSignal(){
-        let func = () => {
-            let id = indexDictionnary[{0}];
-            let message = netMessages[id];
-            mp.trigger('sendSignal', {0}, message)
-        }
+        let func = "() => {"
+             + "let id = indexDictionnary[{0}];"
+             + "let message = netMessages[id];"
+             + "mp.trigger('sendSignal', {0}, message)"
+			+ "}"
     }
     
 }
