@@ -11,20 +11,20 @@ mp.events.add({
             menu.addItemButton(label, cmd);
         }
     },
-    "menu_create_item_button": (label, cmd) => {
+    "menu_create_item_button": (label, cmd, close = true) => {
         if(menu){
-            menu.addItemButton(label, cmd);
+            menu.addItemButton(label, cmd, close);
         }
         else{
             menu = new Menu();
-            menu.addItemButton(label, cmd);
+            menu.addItemButton(label, cmd, close);
         }
     },
     "menu_vehicles_list": (vehList) => {
         if(!menu) menu = new Menu();
         vehList = vehList.split(",")
         for(let vehicle of vehList){
-            menu.addItemButton(vehicle, "va creer " + vehicle);
+            menu.addItemButton(vehicle, "va creer " + vehicle, true);
         }
     },
     "menu_create_item_input_button": (label, cmd) => {

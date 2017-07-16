@@ -8,16 +8,14 @@ class Menu {
     setTitle(title){
         this.browser.execute("setTitle('" + title +"')");
     }
-    addItemButton(label, cmd){
+    addItemButton(label, cmd, close){
         let button = new ItemButton(label, cmd);
         this.items.push(button);
-        mp.events.callRemote('console', "createButton('"+ label +"' + '" + cmd + "')")
-        this.browser.execute("createButton('"+ label +"' , '" + cmd + "')");
+        this.browser.execute("createButton('"+ label +"' , '" + cmd + "' , '" + close + "' )");
     }
     addItemInputButton(label, cmd){
         let button = new ItemInputButton(label, cmd);
         this.items.push(button);
-        mp.events.callRemote('console', "createButton('"+ label +"' + '" + cmd + "')")
         this.browser.execute("createInputbutton('"+ label +"' , '" + cmd + "')");
     }
 }

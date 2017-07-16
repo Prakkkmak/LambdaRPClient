@@ -2,13 +2,14 @@ let buttons = [];
 let buttonSelectioned = 0;
 let MAX = 25;
 let getMenuButtons = document.getElementById("menu_buttons");
-function createButton(name = "Défaut", cmd = null){
+function createButton(name, cmd, close){
     let newButton = document.createElement("BUTTON");
     let text = document.createTextNode(name);
     newButton.appendChild(text);
     getMenuButtons.appendChild(newButton);
     newButton.setAttribute('onclick', "command('" + cmd + "')")
     newButton.cmd = cmd;
+    newButton.close = close;
     newButton.active = true;
     buttons.push(newButton);
     changeSelection(0);
@@ -108,7 +109,10 @@ function select(){
         buttons[buttonSelectioned].cmd += " " + buttons[buttonSelectioned].cmdParam;
     }
     command(buttons[buttonSelectioned].cmd);
-    buttonSelectioned = 0;
+    if(buttons[buttonSelectioned].close == "true"){
+        closeAllButtons();
+        buttonSelectioned = 0;
+    } 
     changeSelection(0);
 }
 
@@ -128,7 +132,6 @@ function command(cmd) {
             text += cmd[i];
         }       
     }
-    closeAllButtons();
     mp.trigger('command', cmd[0], text);
 }
 function closeAllButtons(){

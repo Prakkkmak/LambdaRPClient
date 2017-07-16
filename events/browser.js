@@ -9,6 +9,9 @@ mp.events.add({
     "browser_open_bug": () => {
         BrowserManager.openPage(18,"bug","cef/bug_report/index.html");
     },
+    "browser_open_character_creation": () => {
+        BrowserManager.openPage(32, "character_creation", "cef/character_creation/index.html");
+    },
     "browser_open_register": () => {
         BrowserManager.openPage(30,"register","cef/register/index.html");
     },
