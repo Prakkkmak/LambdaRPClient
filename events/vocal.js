@@ -1,9 +1,11 @@
 const Peer = require("Peer").Peer;
 mp.events.add({
     "sendOffer": (clientId, offer) => {
-        mp.events.callRemote("sendOffer",mp.players.local.id ,clientId, offer);
+        mp.console("Envoi de l'offre "  + offer + " à " + clientId);
+        mp.events.callRemote("sendOffer",clientId, offer);
     },
     "receiveOffer": (senderClientId, offer) => {
+        mp.console("offrer : " + offer)
         let peer = Peer.getPeer(senderClientId);
         peer.receiveOffer(offer);
     },
@@ -20,10 +22,13 @@ mp.events.add({
     "createPeer": (clientId, initiator) => {
         if(!Peer.getPeer(clientId)){
             let peer = new Peer(clientId, initiator);
-            mp.callRemote("console", "Une peer a été créé " + clientId);
+            mp.console("Une peer a été créé " + clientId);
         }
         else{
-            mp.callRemote("console", "Un peer existe déjà");
+            mp.console("Un peer existe déjà");
         }
+    },
+    "updatePeers": () => {
+        Peer.updatePeerList();
     }
 });

@@ -3,8 +3,7 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
 var context = new AudioContext();
 
 var sources = {};
-var panners = {};
-var radios = {};
+var effects = {};
 
 var listener = context.listener;
 if(listener.positionX) {
@@ -17,7 +16,6 @@ if(listener.positionX) {
 
 function addSource(tagId, stream) {
   sources[tagId] = context.createMediaStreamSource(stream);
-
 }
 
 function removeSource(id) {
@@ -54,7 +52,7 @@ function instantiatePanner(maxDistance, assignedId) {
     listener.setOrientation(0,0,-1,0,1,0);
   }
 
-  panners[assignedId] = newPanner;
+  effects[assignedId] = newPanner;
 
   sources[assignedId].connect(newPanner);
 
@@ -62,21 +60,34 @@ function instantiatePanner(maxDistance, assignedId) {
 }
 
 function instantiateRadio(assignedId){
+  let test;
+  test = context.createBiquadFilter();
 
+  test.type = "lowshelf";
+  test.frequency.value = 1000;
+  test.gain.value = 25;
+
+  effects[assignedId] = test;
+
+  sources[assignedId].connect(test);
+
+  return test;
 }
 
-var splitterNodes
+var splitterNodes;
 function mixSourcesToDest() {
 
   var mergerNode = context.createChannelMerger(Object.keys(sources).length*2 );
 
-  splitterNodes = {}
+  splitterNodes = {};
 
   var index = 0;
   for (var key in sources) {
     var value = sources[key];
+
     splitterNodes[key] = context.createChannelSplitter(2);
-    panners[key].connect(splitterNodes[key])
+
+    effects[key].connect(splitterNodes[key]);
 
     splitterNodes[key].connect(mergerNode, 0,index );
     splitterNodes[key].connect(mergerNode, 1,index+1 );
@@ -84,7 +95,7 @@ function mixSourcesToDest() {
     index += 2;
   }
 
-  mergerNode.connect(context.destination)
+  mergerNode.connect(context.destination);
 
 
 }

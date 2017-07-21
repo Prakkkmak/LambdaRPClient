@@ -22,6 +22,8 @@ mp.events.add({
     },
     "freeze": (toggle) => {
         mp.players.local.freezePosition(toggle);
+    },
+    "create_checkpoint": (position) => {
+        mp.checkpoints.new(position);
     }
-
 })

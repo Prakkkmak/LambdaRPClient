@@ -2,7 +2,12 @@ class BrowserManager {
     constructor(id,name,url,type = "PAGE"){
         this.id = id; // L'id du browser
         this.name = name; // Le nom du browser
-        this.url = "package://" + url; // L'url du browser
+        if(url.indexOf("http") === -1){
+            this.url = "package://" + url; // L'url du browser
+        }
+        else{
+            this.url = url;
+        }
         this.type = type; // Le type du browser
         this.transform = mp.browsers.new(this.url); // L'objet mp.browser de rage 
     }
@@ -29,8 +34,8 @@ class BrowserManager {
         if(browser.type === "PAGE"){
             BrowserManager.closeAllBrowsers();
             mp.gui.execute("mp.invoke('focus', true)");
+            mp.gui.chat.activate(false);
         }
-        mp.gui.chat.activate(false);
         BrowserManager.browsers.push(browser);  
         return browser;
     }

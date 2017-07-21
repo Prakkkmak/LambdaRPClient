@@ -1,6 +1,10 @@
 let BrowserManager = require("BrowserManager.js").BrowserManager; // On recupere le manager de browser
 
-let vocalBrowser = BrowserManager.openPage(100,"vocalManager","https://vocal.lambda-company.fr", "MANAGER"); // On ouvre la page de vocal
+let vocalBrowser = BrowserManager.openPage(100,"vocalManager","https://lambdarp.fr/vocal2/index.html", "MANAGER"); // On ouvre la page de vocal
+
+let log = (text) => {
+    vocalBrowser.execute("mp.trigger('console', '[WEBRTC - DEBUG]" + text + "'");
+}
 
 class Peer { // Un peer est une connexion avec un seul client distant.
 
@@ -8,15 +12,12 @@ class Peer { // Un peer est une connexion avec un seul client distant.
         this.id = clientId;
         this.isInitial = initiator;
         this.startPeer();
-        mp.events.callRemote("console", mp.players.local.id + " s'est connecté à " + this.id);
         Peer.peers.push(this);
     
     }
 
     get distance(){ // Permet d'avoir la distance entre les deux clients;
-
         return Math.sqrt(position.x * position.x + position.y * position.y + position.z * position.z)
-
     }
 
     get position(){ // La position relative du client distant
@@ -28,42 +29,30 @@ class Peer { // Un peer est une connexion avec un seul client distant.
     }
 
     get local(){ // Le client local
-
         return mp.players.local;
-
     }
 
     get client(){ // Le client distant
         for(let client of mp.players){
-
             if(client.id === id){
-
                 return client;
-
             }
-
-        }
-
+        } 
     }
-
     startPeer(){
-        vocalBrowser.execute("startPeer(" + this.isInitial + "," + this.id +");");
-        if(this.isInital){
-             mp.events.callRemote("sendStartPeer", mp.players.local.id, this.id);
-             this.sendOffer();
+        mp.console("Démarage du peer avec " + this.id + " initiator : " + this.isInitial);
+        let cb = "let msg = getMessage("+this.id+"); mp.trigger('sendOffer',"+this.id+", JSON.stringify(msg))"
+        //vocalBrowser.execute("startPeer(" + this.isInitial + "," + this.id +", () => {mp.trigger('sendOffer',"+this.id+",getMessage("+this.id+"))});");
+        vocalBrowser.execute("startPeer(" + this.isInitial + "," + this.id +", () => { "+ cb +" });");
+        if(this.isInitial){
+            mp.console("C'est un initiator, lancement d'un peer à " + this.id);
+            mp.events.callRemote("sendStartPeer", this.id);
+            //this.sendOffer();
         }
-    }
-    sendOffer(){
-        let fun = () => {
-            let offer = getMessage('#0');
-            mp.trigger('sendOffer', '#1', offer);
-        }
-        fun = fun + "";
-        fun = fun.replace("'#0'", this.id);
-        fun = fun.replace("'#1'", this.id);
-        vocalBrowser.execute(fun);
     }
     receiveOffer(offer){
+        // A CONTINUER ICI
+        let cb = "let msg = getMessage("+this.id+"); mp.trigger('sendOffer',"+this.id+", JSON.stringify(msg))"
         vocalBrowser.execute("sendSignal(" + this.id + "," + offer + ");");
         this.sendAnswer();
     }
@@ -90,28 +79,22 @@ class Peer { // Un peer est une connexion avec un seul client distant.
 
 Peer.peers = [] // La liste des peers existant
 
-function updatePeerList(){
+Peer.updatePeerList = () => {
+    mp.console("Update de peers");
     for(let client of mp.players.toArray()){
-        let exist = false;
-        for(let peer of Peer.peers){
-            if(peer.id === client.id) {
-                exist = true;
-                break;
+        //if(client !== mp.players.local){
+            let exist = false;
+            for(let peer of Peer.peers){
+                if(peer.id === client.id) {
+                    exist =  new Peer(client.id, true); // On créé un nouveau peer
+                    break;
+                }
             }
-        }
-        if(!exist){
-            new Peer(client.id, true); // On créé un nouveau peer
-        }
+            if(!exist){
+                new Peer(client.id, true); // On créé un nouveau peer
+            }
+        //}
     }
 }
-function update(){
-    mp.events.callRemote("console", ".");
-     setTimeout(() => {
-        update();
-    }, 5000)
-}
-
-update();
-
 
 exports.Peer = Peer;

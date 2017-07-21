@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> CharacterCreation </title>
+        <link rel="stylesheet" href="./Asset/CSS/style.css">
+    </head>
+
+    <body>
+
+        <main>
+
+            <header>
+                <img src="./Asset/image/LRP.jpg" width="12%" height="100%">
+                <h1> Création de votre personnage</h1>
+            </header>
+
+            <div class="divider"></div><br>
+
+            <div class="container">
+
+                <h3> Choisissez votre antécédent : </h3>
+
+                <div class="SpawnBox">
+
+                    <div class="imgbox"> <img src="./Asset/Image/Mairie.png" width="100%"> </div>
+                    <p> Vous êtes un exemple même de la société. Vous êtes à Los Santos depuis un moment et vos racines sont bien encrées dans le sol</p> <br>
+                    <a class="btn" onclick="spawnPoint(0)"> Le bon citoyen </a>
+                </div>
+
+                <div class="SpawnBox">
+
+                    <div class="imgbox"> <img src="./Asset/Image/Arrival.png" width="100%"> </div>
+                    <p> Après de longues heures d'attente vous voici enfin arrivé à Los Santos. Ce sont vos raisons personnelles qui vous ont amené dans cette ville. </p> <br>
+                    <a class="btn" onclick="spawnPoint(1)"> Nouvel arrivant </a>
+                </div>
+
+                <div class="SpawnBox">
+
+                    <div class="imgbox"> <img src="./Asset/Image/BasQuartier.jpg" width="100%"> </div>
+                    <p> Vous trainez, vagabondez, et faites ce que bon vous semble dans votre quartier. Vous connaissez cette ville, ses recoins et elle vous connait dans ce bas monde. </p> <br>
+                    <a class="btn" onclick="spawnPoint(2)"> Civil de bas quartier </a>
+                </div>
+
+                <div class="SpawnBox">
+
+                    <div class="imgbox"> <img src="./Asset/Image/Migrant.jpg" width="100%"> </div>
+                    <p> Vous êtes une ombre. Un simple bras ambulant qui cherche de l'aide et  qui a tenté sa chance pour "l'American Dream". hélas, cela ne c'est pas passé comme prévu... </p> <br>
+                    <a class="btn" onclick="spawnPoint(3)"> SDF - Migrant </a>
+                </div>
+            </div>
+        </main>
+
+        <script src="js/spawn.js"></script>
+
+    </body>
+</html>
