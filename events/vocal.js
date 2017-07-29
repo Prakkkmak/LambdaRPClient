@@ -1,23 +1,22 @@
 const Peer = require("Peer").Peer;
 mp.events.add({
     "sendOffer": (clientId, offer) => {
-        mp.console("Envoi de l'offre "  + offer + " à " + clientId);
+         mp.console('Une offre a été envoyée ' + clientId);
         mp.events.callRemote("sendOffer",clientId, offer);
     },
     "receiveOffer": (senderClientId, offer) => {
-        mp.console("offrer : " + offer)
+        mp.console('Une offre a été reçue de ' + senderClientId);
         let peer = Peer.getPeer(senderClientId);
         peer.receiveOffer(offer);
     },
     "sendAnswer": (clientId, answer) => {
-        mp.events.callRemote("sendAnswer",mp.players.local.id ,clientId, answer);
+        mp.console("Envoi de la réponse à " + clientId);
+        mp.events.callRemote("sendAnswer" ,clientId, answer);
     },
     "receiveAnswer": (senderClientId, answer) => {
+        mp.console("Answer recu une réponse de " + senderClientId);
         let peer = Peer.getPeer(senderClientId);
         peer.receiveAnswer(answer);
-    },
-    "getMessage": (message) => {
-        
     },
     "createPeer": (clientId, initiator) => {
         if(!Peer.getPeer(clientId)){
@@ -28,7 +27,13 @@ mp.events.add({
             mp.console("Un peer existe déjà");
         }
     },
+    "vocalEstablished": (clientId, initiator = true) => {
+        if(initiator) mp.events.callRemote('vocalEstablished', clientId);
+        mp.console("DEBUG CLIENT ID : " + clientId);
+        let peer = Peer.getPeer(clientId);
+        peer.vocalEstablished();
+    },
     "updatePeers": () => {
         Peer.updatePeerList();
-    }
+    },
 });

@@ -1,6 +1,6 @@
 let buttons = [];
 let buttonSelectioned = 0;
-let MAX = 25;
+let MAX = 15;
 let getMenuButtons = document.getElementById("menu_buttons");
 function createButton(name, cmd, close){
     let newButton = document.createElement("BUTTON");
@@ -16,7 +16,7 @@ function createButton(name, cmd, close){
     return newButton;
 }
 function createInputbutton(name = "0", cmd = "null"){
-    let button = createButton(name,cmd);
+    let button = createButton(name,cmd, true);
     button.inputButton = true;
     button.cmdParam = "";
 }
@@ -61,12 +61,11 @@ document.onkeydown = (e) => {
     else if(e.keyCode === 13){
         select();
     }
-    else if(e.keyCode === 8){ // Backspace
+    else if(e.keyCode === 222){ // Backspace
         closeAllButtons()
     }
 }
 function display(){
-
     if(buttons.length > MAX){
         let min = Math.floor(buttonSelectioned - MAX/2);
         let max = Math.floor(buttonSelectioned + MAX/2);
@@ -117,9 +116,9 @@ function select(){
 }
 
 function deleteButton(id = 0){
-    id = buttons.length - 1
+    id = buttons.length - 1;
     getMenuButtons.removeChild(buttons[id]);
-    buttons.splice(id, 1)
+    buttons.splice(id, 1);
 }
 function command(cmd) {
     cmd = cmd.split(' ');

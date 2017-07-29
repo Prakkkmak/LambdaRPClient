@@ -12,6 +12,5 @@ mp.isChatActive = () => {
      +"if(chat.input){active = 'true'}else active = 'false'; "
      +"mp.trigger('setChatActive', active);");*/
      mp.gui.execute("mp.trigger('setChatActive', chat.input + '')")
-    mp.console("chat actif = " + mp.chatActive);
     return mp.chatActive;
 }
